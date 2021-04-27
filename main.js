@@ -68,7 +68,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 router.use(connectFlash());
 
-router.get("/", homeController.index);
+
 
 
 
