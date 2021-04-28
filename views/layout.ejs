@@ -5,12 +5,25 @@
     <title>
         Confetti Cuisine
     </title>
-    <link rel="stylesheet" href="/css/confetti_cuisine.css">
+
+
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="/css/confetti_cuisine.css">
+    <!--
+
+        <link rel="stylesheet" href="../bootstrap.css">
+        <script src="../bootstrap.min.js"></script>
+        <script src="../jquery.min.js"></script>
+
+    -->
 </head>
 
 <body>
+    <h1>Test Message</h1>
     <div id="nav">
 
         <div class="col-sm nav-align">
@@ -33,18 +46,18 @@
         </div>
         <div class="login">
             <% if(loggedIn){ %>
-            <p> Logged in as <a href="<%= `/users/${currentUser._id}`%>">
-            <%= currentUser.fullName %>
-            </a>
-            <a href="/users/logout">Log out</a>
-            
-            <%} else { %>
-            <a href="/users/login">Log in</a>
-            <% } %>
+                <p> Logged in as <a href="<%= `/users/${currentUser._id}`%>">
+                        <%= currentUser.fullName %>
+                    </a>
+                    <a href="/users/logout">Log out</a>
+
+                    <%} else { %>
+                        <a href="/users/login">Log in</a>
+                        <% } %>
         </div>
     </div>
 
-    
+
 
     <div class="flashes">
         <% if(flashMessages) { %>
@@ -57,8 +70,8 @@
                     <div class="flash error">
                         <%= flashMessages.error %>
                     </div>
-                <% } %>
-        <% } %>
+                    <% } %>
+                        <% } %>
     </div>
 
 
