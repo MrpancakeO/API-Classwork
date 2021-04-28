@@ -8,12 +8,21 @@
 
 
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/confettiCuisine.js"></script>
 
+    <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/confetti_cuisine.css">
+
+
+
     <!--
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 
         <link rel="stylesheet" href="../bootstrap.css">
         <script src="../bootstrap.min.js"></script>
@@ -23,7 +32,6 @@
 </head>
 
 <body>
-    <h1>Test Message</h1>
     <div id="nav">
 
         <div class="col-sm nav-align">
@@ -43,6 +51,9 @@
                 <a href="/users">
                     <span class="button">People</span>
                 </a>
+
+                <%- include('courses/_coursesModal') %>
+
         </div>
         <div class="login">
             <% if(loggedIn){ %>

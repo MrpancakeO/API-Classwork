@@ -37,21 +37,21 @@ db.once("open", () => {
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
 
-router.use(express.static("public"));
-router.use(layouts);
-router.use(expressValidator());
-router.use(
+app.use(express.static("public"));
+app.use(layouts);
+app.use(expressValidator());
+app.use(
     express.urlencoded({
         extended: false
     })
 );
 
-router.use(methodOverride("_method", {methods: ['POST', 'GET']}));
+app.use(methodOverride("_method", {methods: ['POST', 'GET']}));
 
-router.use(express.json());
+app.use(express.json());
 
-router.use(cookieParser("my_passcode"));
-router.use(expressSession({
+app.use(cookieParser("my_passcode"));
+app.use(expressSession({
     secret: "my_passcode",
     cookie: {
         maxAge: 360000
@@ -61,19 +61,19 @@ router.use(expressSession({
 }));
 
 
-router.use(passport.initialize());
-router.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-router.use(connectFlash());
+app.use(connectFlash());
 
 
 
 
 
 
-router.use((req, res, next) => {
+app.use((req, res, next) => {
     res.locals.flashMessages = req.flash();
     res.locals.loggedIn = req.isAuthenticated();
     res.locals.currentUser = req.user;
