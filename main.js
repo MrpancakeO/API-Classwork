@@ -24,7 +24,8 @@ User = require("./models/user");
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect("mongodb://localhost:27017/confetti_cuisine", {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/recipe_db", 
+{useNewUrlParser: true});
 mongoose.set("useCreateIndex", true);
 
 const db = mongoose.connection;
@@ -87,6 +88,6 @@ app.use((req, res, next) => {
 
 app.use("/", router);
 
-app.listen(app.get("port"), () => {
+const server = app.listen(app.get("port"), () => {
     console.log(`Server is running on port: ${app.get("port")}`);
 });
